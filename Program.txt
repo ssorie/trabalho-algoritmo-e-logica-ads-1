@@ -16,6 +16,8 @@ namespace Projeto_Algoritmo_e_logica_de_programação_etapa_1
             Console.Write("Digite seus rendimentos mensais: ");
             entrada = Convert.ToDouble(Console.ReadLine());
 
+            //Dados retirados de https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/copy_of_2024;
+
             if (entrada <= 2259.20)
             {
                 impostoDeRenda = 0;
