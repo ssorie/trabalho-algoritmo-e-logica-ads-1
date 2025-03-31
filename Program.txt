@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Projeto_Algoritmo_e_logica_de_programação_etapa_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //variáveis para entrada(rendimentos), imposto de renda e alíquota efetiva
+            double impostoDeRenda, entrada, alíquotaEfetiva;
+
+            Console.Write("Digite seus rendimentos mensais: ");
+            entrada = Convert.ToDouble(Console.ReadLine());
+
+            if (entrada <= 2259.20)
+            {
+                impostoDeRenda = 0;
+                Console.WriteLine("Insento");
+            }
+
+            else if (entrada <= 2826.65)
+            {
+                impostoDeRenda = (entrada - 2826.65) * 0.075 - 169.44;
+                Console.WriteLine("Imposto devido: ");
+            }
+
+            else if (entrada <= 3751.05)
+            {
+                impostoDeRenda = (entrada - 3751.05) * 0.15 - 381.44;
+                Console.WriteLine("Imposto devido: ");
+            }
+
+            else if (entrada <= 4664.68)
+            {
+                impostoDeRenda = (entrada - 4664.68) * 0.225 - 662.77;
+                Console.WriteLine("Imposto devido: ");
+            }
+            
+            else if (entrada >= 4664.68)
+            {
+                impostoDeRenda = (entrada - 4664.68) * 0.275 - 896.00;
+                Console.WriteLine("Imposto devido: ");
+            }
+
+            
+
+        }
+    }
+}
