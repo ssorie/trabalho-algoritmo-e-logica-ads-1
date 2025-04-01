@@ -1,22 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto_Algoritmo_e_logica_de_programação_etapa_1
+namespace ConsoleApp2
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //variáveis para entrada(rendimentos), imposto de renda e alíquota efetiva
-            double impostoDeRenda, entrada, alíquotaEfetiva;
+            //variáveis para entrada(rendimentos), imposto de renda e alíquota efetiva.
+            //inicar a variavel impostoDeRenda com 0 para evitar o erro CS0165.
+            //Foi utilizado https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/compiler-messages/cs0165 para resolver o erro.
+            double impostoDeRenda = 0, entrada, aliquotaEfetiva;
 
             Console.Write("Digite seus rendimentos mensais: ");
             entrada = Convert.ToDouble(Console.ReadLine());
 
-            //Dados retirados de https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/copy_of_2024;
+            //Dados retirados de https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/copy_of_2024.
 
             if (entrada <= 2259.20)
             {
@@ -26,30 +28,38 @@ namespace Projeto_Algoritmo_e_logica_de_programação_etapa_1
 
             else if (entrada <= 2826.65)
             {
-                impostoDeRenda = (entrada - 2826.65) * 0.075 - 169.44;
-                Console.WriteLine("Imposto devido: ");
+                impostoDeRenda = (entrada - 2259.20) * 0.075 - 169.44;
+                Console.WriteLine($"Imposto devido: {impostoDeRenda:F2}");
             }
 
             else if (entrada <= 3751.05)
             {
-                impostoDeRenda = (entrada - 3751.05) * 0.15 - 381.44;
-                Console.WriteLine("Imposto devido: ");
+                impostoDeRenda = (entrada - 2826.65) * 0.15 - 381.44;
+                Console.WriteLine($"Imposto devido: {impostoDeRenda:F2}");
             }
 
             else if (entrada <= 4664.68)
             {
-                impostoDeRenda = (entrada - 4664.68) * 0.225 - 662.77;
-                Console.WriteLine("Imposto devido: ");
+                impostoDeRenda = (entrada - 3751.05) * 0.225 - 662.77;
+                Console.WriteLine($"Imposto devido: {impostoDeRenda:F2}");
             }
-            
-            else if (entrada >= 4664.68)
+
+            else 
+
             {
                 impostoDeRenda = (entrada - 4664.68) * 0.275 - 896.00;
-                Console.WriteLine("Imposto devido: ");
+                Console.WriteLine($"Imposto devido: {impostoDeRenda:F2}");
             }
 
-            
+            if (entrada > 0)
+            {
+                aliquotaEfetiva = impostoDeRenda / entrada * 100;
+                Console.WriteLine($"Alíquota Efetiva: {aliquotaEfetiva:F2}%");
+            }
+            //Foi Utilizado Interpolação de string para facilitar a leitura do código e garantindo a formatação adequada dos números e porcentagens. 
+            //https://learn.microsoft.com/pt-br/dotnet/csharp/tutorials/string-interpolation
 
+            Console.ReadKey();
         }
     }
 }
